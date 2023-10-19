@@ -1,5 +1,6 @@
 /* eslint-disable max-classes-per-file */
 /* eslint-disable react/no-multi-comp */
+import {useRef, useEffect, useCallback, useState} from 'react'
 import 'semantic-ui-css/semantic.min.css'
 import { createMedia } from '@artsy/fresnel'
 import PropTypes from 'prop-types'
@@ -35,7 +36,7 @@ const HomepageHeading = ({ mobile }) => (
     <Container text>
       <Header
           as='h1'
-          content='Imagine-a-Company'
+          content='welcome to DocBook'
           inverted
           style={{
             fontSize: mobile ? '2em' : '4em',
@@ -46,7 +47,7 @@ const HomepageHeading = ({ mobile }) => (
       />
       <Header
           as='h2'
-          content='Do whatever you want when you want to.'
+          content='Best way to stay in touch with Doctor around the world'
           inverted
           style={{
             fontSize: mobile ? '1.5em' : '1.7em',
@@ -55,7 +56,7 @@ const HomepageHeading = ({ mobile }) => (
           }}
       />
       <Button primary size='huge'>
-        Get Started
+        Encode New Patient
         <Icon name='right arrow' />
       </Button>
     </Container>
@@ -95,13 +96,18 @@ class DesktopContainer extends Component {
                   size='large'
               >
                 <Container>
+                  <Menu.Item position='left'>
+                  <Image size='mini' position="left" src = 'DB_logo.jpg' alt="DB Logo"/>
+                  </Menu.Item>
+
                   <Menu.Item as='a' active>
                     Home
                   </Menu.Item>
-                  <Menu.Item as='a'>Work</Menu.Item>
-                  <Menu.Item as='a'>Company</Menu.Item>
-                  <Menu.Item as='a'>Careers</Menu.Item>
-                  <Menu.Item position='right'>
+                  <Menu.Item as='a'>Services</Menu.Item>
+                  <Menu.Item as='a'>News</Menu.Item>
+                  <Menu.Item as='a'>About</Menu.Item>
+                  <Menu.Item as='a'>Contact Us</Menu.Item>
+                    <Menu.Item position='right'>
                     <Button as='a' inverted={!fixed}>
                       Log in
                     </Button>
@@ -114,7 +120,6 @@ class DesktopContainer extends Component {
               <HomepageHeading />
             </Segment>
           </InView>
-
           {children}
         </Media>
     )
@@ -150,9 +155,10 @@ class MobileContainer extends Component {
               <Menu.Item as='a' active>
                 Home
               </Menu.Item>
-              <Menu.Item as='a'>Work</Menu.Item>
-              <Menu.Item as='a'>Company</Menu.Item>
-              <Menu.Item as='a'>Careers</Menu.Item>
+              <Menu.Item as='a'>Services</Menu.Item>
+              <Menu.Item as='a'>News</Menu.Item>
+              <Menu.Item as='a'>About</Menu.Item>
+              <Menu.Item as='a'>Contact Us</Menu.Item>
               <Menu.Item as='a'>Log in</Menu.Item>
               <Menu.Item as='a'>Sign Up</Menu.Item>
             </Sidebar>
@@ -215,10 +221,10 @@ const HomepageLayout = () => (
         <Grid container stackable verticalAlign='middle'>
           <Grid.Row>
             <Grid.Column width={8}>
-              <Header as='h3' style={{ fontSize: '2em' }}>
-                We Help Companies and Companions
+              <Header as='h3' style={{ fontSize: '1.50em' }}>
+                We Help Doctor to get better diagnosis of their patients
               </Header>
-              <p style={{ fontSize: '1.33em' }}>
+              <p style={{ fontSize: '1.20em' }}>
                 We can give your company superpowers to do things that they never thought possible.
                 Let us delight your customers and empower your needs... through pure data analytics.
               </p>
@@ -310,16 +316,16 @@ const HomepageLayout = () => (
                 <List link inverted>
                   <List.Item as='a'>Sitemap</List.Item>
                   <List.Item as='a'>Contact Us</List.Item>
-                  <List.Item as='a'>Religious Ceremonies</List.Item>
-                  <List.Item as='a'>Gazebo Plans</List.Item>
+                  <List.Item as='a'>News</List.Item>
+                  <List.Item as='a'>Future projects</List.Item>
                 </List>
               </Grid.Column>
               <Grid.Column width={3}>
                 <Header inverted as='h4' content='Services' />
                 <List link inverted>
-                  <List.Item as='a'>Banana Pre-Order</List.Item>
-                  <List.Item as='a'>DNA FAQ</List.Item>
-                  <List.Item as='a'>How To Access</List.Item>
+                  <List.Item as='a'>encode new patient</List.Item>
+                  <List.Item as='a'>contact our medical Team</List.Item>
+                  <List.Item as='a'>get an Appointment </List.Item>
                   <List.Item as='a'>Favorite X-Men</List.Item>
                 </List>
               </Grid.Column>
